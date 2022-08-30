@@ -12,6 +12,7 @@
       font-size: 60px;
       font-weight: bolder;
       color: white;
+      text-decoration: underline;
     }
 
   }
@@ -40,15 +41,31 @@ ion-content.background {
 
 // Botón Play
 .playGame {
-  margin-top: 40px;
+  margin-top: 60px;
   ion-button {
-    margin: 0px 30px 10px 30px;
+    margin: 0px 30px 30px 30px;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-variant: small-caps;
     --background: url('../../../assets/img/fondo-galaxia-realista.jpg') 60% 55%;
+
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
     ion-icon {
       margin-left: 10px;
     }
+  }
+}
+
+//Footer
+ion-footer{
+  .creditos {
+      color: whitesmoke;
+      text-align: center;
+      font-weight: bold;
+      font-variant: small-caps;
+      font-style: oblique;
+      font-size: 20px;
   }
 }
