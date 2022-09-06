@@ -1,0 +1,194 @@
+// @media
+$breakpoint-xs: 340px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+  @else if $media == sm {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $media == md {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) { @content; }
+  }
+  @else if $media == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+}
+
+ion-app {
+    ion-content.background {
+        --background: url(../../../assets/img/galaxy.jpg) 0 0/300% 100% no-repeat;
+            
+    }
+}
+
+// Titulo conecta4
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+#conecta{
+    font-family: "Press Start 2P", cursive;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(0, 255, 255);
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+    padding: 30px;
+    margin-top: 40px;
+    @include media(xs) {
+        font-size: 18.5px;
+        margin-top: 10px;
+    }
+}
+
+/* Animación de carga */
+.animation-loader {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    @include media(xs) {
+        margin-top: 0px;
+    }
+    .loader {
+        width: 6em;
+        height: 6em;
+        font-size: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+      
+    .loader .face {
+        position: absolute;
+        border-radius: 50%;
+        border-style: solid;
+        animation: animateloader 3s linear infinite;
+    }
+    
+    .loader .face:nth-child(1) {
+        width: 100%;
+        height: 100%;
+        color: gold;
+        border-color: currentColor transparent transparent currentColor;
+        border-width: 0.2em 0.2em 0em 0em;
+        --deg: -45deg;
+        animation-direction: normal;
+    }
+      
+    .loader .face:nth-child(2) {
+        width: 70%;
+        height: 70%;
+        color: red;
+        border-color: currentColor currentColor transparent transparent;
+        border-width: 0.2em 0em 0em 0.2em;
+        --deg: -135deg;
+        animation-direction: reverse;
+    }
+    
+    .loader .face .circle {
+        position: absolute;
+        width: 50%;
+        height: 0.1em;
+        top: 50%;
+        left: 50%;
+        background-color: transparent;
+        transform: rotate(var(--deg));
+        transform-origin: left;
+    }
+      
+    .loader .face .circle::before {
+        position: absolute;
+        top: -0.5em;
+        right: -0.5em;
+        content: '';
+        width: 1em;
+        height: 1em;
+        background-color: currentColor;
+        border-radius: 50%;
+        box-shadow: 0 0 2em,
+                        0 0 4em,
+                        0 0 6em,
+                        0 0 8em,
+                        0 0 10em,
+                        0 0 0 0.5em rgba(255, 255, 0, 0.1);
+    }
+      
+    @keyframes animateloader {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+}
+
+/* Botónes crazy */
+.button-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40%;
+
+    @include media(xs) {
+        margin-top: 20%;
+    }
+
+    ion-button {
+        ion-icon {
+            margin-left: 5px;
+        }
+    }
+    .button-crazy {
+        text-decoration: none;
+        border: none;
+        font-size: 14px;
+        font-family: inherit;
+        color: #fff;
+        width: 21em;
+        height: 3em;
+        line-height: 2em;
+        text-align: center;
+        background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+        background-size: 300%;
+        border-radius: 5px;
+        z-index: 1;
+        
+        @include media(xs) {
+            width: 15em;
+        }
+    }
+    
+    .button-crazy:hover {
+    animation: ani 8s linear infinite;
+    border: none;
+    }
+    
+    @keyframes ani {
+    0% {
+        background-position: 0%;
+    }
+    
+    100% {
+        background-position: 400%;
+    }
+    }
+
+    .button-crazy:hover::before {
+    filter: blur(20px);
+    }
+}
+
+//Footer
+ion-footer{
+    ion-text {
+        text-align: center;
+        h1 {
+            font-family: "Press Start 2P", cursive;
+            font-size: 12px;
+            @include media(xs) {
+                font-size: 9px;
+            }
+        }
+    }
+}
