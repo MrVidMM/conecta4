@@ -1,0 +1,53 @@
+// @media
+$breakpoint-xs: 340px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+  @else if $media == sm {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $media == md {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) { @content; }
+  }
+  @else if $media == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+}
+
+ion-app {
+    ion-content.background {
+        --background: url(../../../assets/img/galaxy.jpg) 0 0/300% 100% no-repeat;
+            
+    }
+}
+
+//Image prueba
+ion-col {
+    margin: 15px;
+}
+ion-img {
+    width: 50px;
+    height: 50px;
+    
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+//Footer
+ion-footer{
+    ion-text {
+        text-align: center;
+        h1 {
+            font-family: "Press Start 2P", cursive;
+            font-size: 12px;
+            @include media(xs) {
+                font-size: 9px;
+            }
+        }
+    }
+}

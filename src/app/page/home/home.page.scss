@@ -134,6 +134,9 @@ ion-app {
         margin-top: 20%;
     }
 
+    @include media(lg) {
+        margin-top: 5%;
+    }
     ion-button {
         ion-icon {
             margin-left: 5px;
