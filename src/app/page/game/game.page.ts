@@ -11,6 +11,7 @@ export class GamePage implements OnInit {
   constructor(private screenOrientation: ScreenOrientation) {
     console.log(this.screenOrientation.type);
     
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
 
   ngOnInit() {
