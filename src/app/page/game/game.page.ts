@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePage implements OnInit {
 
-  constructor() { }
-  
+  constructor(private screenOrientation: ScreenOrientation) {
+    console.log(this.screenOrientation.type);
+    
+  }
+
   ngOnInit() {
   }
+
+  
 
 }
